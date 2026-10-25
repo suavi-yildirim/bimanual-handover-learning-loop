@@ -86,6 +86,21 @@ Most of the work was physical and kinematic debugging rather than model training
 - **Mixed reality.** Prototype that streams the Isaac Sim scene to a Meta Quest 3 over CloudXR, with thumbstick
   locomotion, as a first step toward human teleoperation in VR (`sim/start_vr.py`, `sim/vr_locomotion.py`).
 
+### Deterministic replay and mixed reality
+
+<table>
+<tr>
+<td width="34%"><img src="media/images/deterministic_replay_6x.gif" alt="Deterministic replay in Isaac Sim"></td>
+<td width="33%"><img src="media/images/vr_quest3_outside.gif" alt="Quest 3 headset in use"></td>
+<td width="33%"><img src="media/images/vr_quest3_headset.gif" alt="View inside the Quest 3 headset"></td>
+</tr>
+<tr>
+<td><b>Deterministic replay</b> of a recorded demonstration in Isaac Sim (6x speed)</td>
+<td><b>Quest 3</b>: walking the robot scene in VR (real time)</td>
+<td><b>Inside the headset</b>: the hospital room and the FR3 Duo (real time)</td>
+</tr>
+</table>
+
 ## Results
 
 ![What we did and what we learned](docs/figures/V13_our_path.png)
@@ -121,6 +136,8 @@ All clips come from Isaac Sim and are sped up; the speed is written on each vide
 | [`v0_best_attempt_3x.mp4`](media/videos/v0_best_attempt_3x.mp4) | Best v0 run: left grasp, right grasp and handover, then the right arm misses before placing | 20 s (3x) |
 | [`v0_drift_recorded_vs_sim_3x.mp4`](media/videos/v0_drift_recorded_vs_sim_3x.mp4) | Recorded demonstration (top) vs the policy in the loop (bottom): the arm drifts off the demonstrated path | 26 s (3x) |
 | [`v0_supervisor_retry_2x.mp4`](media/videos/v0_supervisor_retry_2x.mp4) | The supervisor detects a missed grasp, rewinds the arm and retries | 13 s (2x) |
+| [`deterministic_replay_isaac_sim_6x.mp4`](media/videos/deterministic_replay_isaac_sim_6x.mp4) | Deterministic replay: the recorded joint commands played back open-loop in the live Isaac Sim session, with the matched gripper and box physics; both arms complete the handover | 54 s (6x) |
+| [`vr_quest3_isaac_sim.mp4`](media/videos/vr_quest3_isaac_sim.mp4) | Meta Quest 3 in the Isaac Sim hospital room over CloudXR: outside view, then the view inside the headset | 42 s (real time) |
 
 <p>
 <img src="media/images/isaac_sim_hospital_room.jpg" width="49%" alt="Hospital room scene in Isaac Sim">
