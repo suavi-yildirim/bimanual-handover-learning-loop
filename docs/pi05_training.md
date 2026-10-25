@@ -1,4 +1,4 @@
-# C2 "Teach the Robot": Fine-tuning pi0.5 (openpi) on the FR3 Duo handover data
+# Fine-tuning pi0.5 (openpi) on the FR3 Duo handover data (Cathlab Assistant Robot, Challenge 2)
 
 Process flow, v2, 23 Oct 2026
 

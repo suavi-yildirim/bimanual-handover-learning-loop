@@ -144,7 +144,7 @@ def main(argv=None):
     reps = {n: json.loads((root / n / "report.json").read_text()) for n in names}
 
     story = [P("Dataset Intelligence Report", "title"),
-             P("Siemens Healthineers Hackathon 2026 &middot; Challenge 2 &ldquo;Teach the Robot&rdquo; &middot; "
+             P("Siemens Healthineers Hackathon 2026 &middot; Challenge 2 &ldquo;Cathlab Assistant Robot&rdquo; &middot; "
                f"Stage 02 of the learning loop &middot; generated {dt.date.today().isoformat()}", "sub"),
              Spacer(1, 10),
              P("<b>Question (from the challenge slides):</b> Is the dataset ready for training? Which episodes are "
@@ -230,7 +230,7 @@ def main(argv=None):
         c.saveState()
         c.setFont("Helvetica", 7)
         c.setFillColor(colors.HexColor("#888888"))
-        c.drawString(1.5 * cm, 0.8 * cm, "C2 Teach the Robot - Dataset Intelligence (Stage 02)")
+        c.drawString(1.5 * cm, 0.8 * cm, "C2 Cathlab Assistant Robot - Dataset Intelligence (Stage 02)")
         c.drawRightString(landscape(A4)[0] - 1.5 * cm, 0.8 * cm, f"page {d.page}")
         c.restoreState()
 

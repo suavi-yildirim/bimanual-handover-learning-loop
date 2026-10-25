@@ -26,11 +26,11 @@ const THEME = {
 const pres = new pptxgen();
 pres.layout = "LAYOUT_WIDE"; // 13.333 x 7.5 in, same 16:9 as the figures
 pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
-pres.title = "Teach the Robot: a physical AI learning loop for a cathlab companion";
+pres.title = "Cathlab Assistant Robot: a physical AI learning loop for a cathlab companion";
 pres.subject = "Siemens Healthineers Robotics & AI Hackathon 2026, Challenge 2";
 pres.author = "Challenge 2 team";
 const C = pres.SchemeColor;
-const FOOTER = "Challenge 2 · Teach the Robot · Physical AI learning loop for a cathlab companion";
+const FOOTER = "Challenge 2 · Cathlab Assistant Robot · Physical AI learning loop for a cathlab companion";
 
 // ---------------------------------------------------------------- layouts
 pres.defineSlideMaster({
@@ -80,7 +80,7 @@ function figureSlide(section, fig, alt, notes) {
 pres.addSection({ title: "Opening" });
 {
   const s = pres.addSlide({ masterName: "C2 Title Dark", sectionTitle: "Opening" });
-  s.addText("Teach the Robot", { placeholder: "title" });
+  s.addText("Cathlab Assistant Robot", { placeholder: "title" });
   s.addText("A physical AI learning loop for a cathlab robot companion", { placeholder: "subtitle" });
   s.addText("Siemens Healthineers Robotics & AI Hackathon 2026 · Challenge 2\nErlangen, 24 October 2026",
     { placeholder: "meta" });

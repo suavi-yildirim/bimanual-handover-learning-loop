@@ -1,4 +1,4 @@
-"""Presentation figures for Challenge 2 (Teach the Robot), Siemens Healthineers colour code.
+"""Presentation figures for Challenge 2 (Cathlab Assistant Robot), Siemens Healthineers colour code.
 
 Run with the Isaac env python (has matplotlib, numpy, PIL):
     $ISAAC_PY presentation/make_figures.py [--only F07]
@@ -54,7 +54,7 @@ plt.rcParams.update({
 
 W, H = 1333, 750          # canvas units: 100 per inch, y grows downward
 PT = 100 / 72             # canvas units per typographic point
-FOOTER = "Challenge 2 · Teach the Robot · Physical AI learning loop for a cathlab companion"
+FOOTER = "Challenge 2 · Cathlab Assistant Robot · Physical AI learning loop for a cathlab companion"
 
 
 # ---------------------------------------------------------------- drawing kit

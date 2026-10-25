@@ -1,11 +1,13 @@
-# Teach the Robot: bimanual handover learning loop
+# Cathlab Assistant Robot: learning a two-arm handover from demonstrations
 
 **Siemens Healthineers Robotics & AI Hackathon 2026, Challenge 2** · Erlangen, 22 to 24 October 2026
 
-In 58 hours we built a simulation pipeline for teaching a two-armed **Franka FR3 Duo** a hospital task: pick up a
-box with the left arm, hand it to the right arm and place it on a serving tray. The pipeline takes raw
+A robot assistant for the **cardiac catheterisation lab (cathlab)** that takes routine fetch-and-pass work off the
+nurses: picking up supplies, passing them between its two arms and setting them down on the instrument tray. In 58
+hours we built the pipeline that teaches it such a skill in simulation: a two-armed **Franka FR3 Duo** picks up a
+box with the left arm, hands it to the right arm and places it on a serving tray. The pipeline takes raw
 demonstrations, checks the data, fine-tunes a Vision-Language-Action model (**pi0.5** with LoRA), tests it in
-**NVIDIA Isaac Sim**, works out why it fails, and generates new demonstrations to fix the failure.
+**NVIDIA Isaac Sim** in a hospital room, works out why it fails, and generates new demonstrations to fix the failure.
 
 <table>
 <tr>
@@ -20,13 +22,36 @@ demonstrations, checks the data, fine-tunes a Vision-Language-Action model (**pi
 
 ![The learning loop we built](docs/figures/V04_learning_loop.png)
 
-## The problem
+## Why the cathlab
 
-Cathlab nurses spend a lot of their time on routine fetch-and-place work, and staff are short. Robots that need an
-engineer to program every task don't scale. Robots that learn from demonstrations could, but there's no reliable way
-to go from recorded demonstrations to a tested, versioned robot skill. The challenge asked: *how can a human
-demonstration become a deployed, evaluated and explainable robot model within 72 hours, and get better with each
-iteration?*
+In a cathlab, nurses prepare the patient, monitor them, prepare the equipment and assist the cardiologist during
+the procedure, often under acute staff shortage. Much of the equipment work is repetitive: fetching a sterile
+package from storage, passing it on, setting it down in the right place. A robot that takes over these motions gives
+the nurse time back for the patient.
+
+Two things make this hard:
+
+- **Every new task needs an engineer.** Classic robots are programmed task by task, which doesn't scale to the
+  many small handling steps of a procedure. Robots that learn from demonstrations could, but there's no reliable path
+  from recorded demonstrations to a tested, versioned robot skill.
+- **A hospital needs evidence, not a demo.** Success has to be measured over many runs with confidence intervals,
+  failures have to be explained, and the robot has to stay safe when the learned policy goes wrong.
+
+The challenge asked: *how can a human demonstration become a deployed, evaluated and explainable robot model within
+72 hours, and get better with each iteration?* The handover task is the first cathlab-style skill we put through
+that loop.
+
+### Safety and autonomy for clinical use
+
+- **Designed for task autonomy (level 2).** The nurse starts a task, supervises it and can stop it at any time. No
+  patient contact; the robot works outside the sterile field and the patient zone.
+- **Supervisor around the learned policy.** It detects missed grasps, stalls, a tipped or dropped object, and
+  rewinds and retries or stops (`sim/recovery.py`).
+- **Release interlocks.** A gripper only lets go once the other arm holds the object, and the final release only
+  happens over the tray.
+- **Human sign-off at the boundary (design rule).** Data generation, retraining and evaluation may run
+  automatically inside the simulation; any step toward a real robot or the clinic needs a human decision
+  ([`docs/methodology.md`](docs/methodology.md)).
 
 ## Approach: a five-stage loop
 

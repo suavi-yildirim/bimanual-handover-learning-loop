@@ -55,7 +55,7 @@ def panel(ax, i, n, head, body, tag, fc=PAPER):
 
 def main():
     fig, ax = canvas("Where this goes next",
-                     source="Concept · Challenge 2 · Teach the Robot · 24 Oct 2026")
+                     source="Concept · Challenge 2 · Cathlab Assistant Robot · 24 Oct 2026")
     txt(ax, L, 92, "From one scripted handover to a companion that listens, multitasks and keeps learning from people.",
         size=12, color=GREY)
 
