@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+desktop.ini
+.idea/
+.vscode/
+
+# Organiser-provided material (Siemens Healthineers, not redistributable)
+C2_Teach-the-robot_VLA/
+*.usd
+*.usda
+*.usdc
+*.gltf
+*.glb
+*.zip
+
+# Generated data, runs and checkpoints
+sim/out/
+sim/out_*.log
+dataset_check/reports/
+expert/out/
+checkpoints/
+*.npz
+*.parquet
+*.mp4
+!media/videos/*.mp4
+*.log
+
+# Presentation exports
+*.pptx

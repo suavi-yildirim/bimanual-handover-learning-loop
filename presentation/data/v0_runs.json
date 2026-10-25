@@ -1,0 +1,506 @@
+[
+ {
+  "run": "eval_20261023_1410/retry2/rollout_20261023_141038_ep000",
+  "frames": 562,
+  "abort": null,
+  "lat": {
+   "p50": 95.7,
+   "p95": 98.2
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": 2,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "eval_20261023_1415/retry0/rollout_20261023_141516_ep000",
+  "frames": 261,
+  "abort": null,
+  "lat": {
+   "p50": 96.3,
+   "p95": 98.8
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": 2,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts/rollout_20261023_112515_ep000",
+  "frames": 2300,
+  "abort": null,
+  "lat": {
+   "p50": 110.3,
+   "p95": 119.0
+  },
+  "assist": false,
+  "sup": false,
+  "lift0": 48.0,
+  "sig": null,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_141814_ep000",
+  "frames": 1330,
+  "abort": "stalled near recorded frame 406; R arm already retried 2 times",
+  "lat": {
+   "p50": 95.2,
+   "p95": 103.4
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_142404_ep000",
+  "frames": 294,
+  "abort": "box tipped over (35 deg)",
+  "lat": {
+   "p50": 95.1,
+   "p95": 97.4
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_142613_ep000",
+  "frames": 367,
+  "abort": "stalled near recorded frame 395 while carrying the box",
+  "lat": {
+   "p50": 94.4,
+   "p95": 97.0
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_142901_ep000",
+  "frames": 1784,
+  "abort": "R grasp missed; R arm already retried 2 times",
+  "lat": {
+   "p50": 94.9,
+   "p95": 97.7
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": true,
+  "handover": true,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_143453_ep000",
+  "frames": 374,
+  "abort": "stalled near recorded frame 390 while carrying the box",
+  "lat": {
+   "p50": 97.1,
+   "p95": 100.4
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_assist/rollout_20261023_143722_ep000",
+  "frames": 889,
+  "abort": "stalled near recorded frame 778 while carrying the box",
+  "lat": {
+   "p50": 95.2,
+   "p95": 144.0
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_map/rollout_20261023_112313_ep000",
+  "frames": 450,
+  "abort": null,
+  "lat": {
+   "p50": 110.4,
+   "p95": 116.9
+  },
+  "assist": false,
+  "sup": false,
+  "lift0": 48.0,
+  "sig": null,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_map_delay3/rollout_20261023_112407_ep000",
+  "frames": 450,
+  "abort": null,
+  "lat": {
+   "p50": 110.6,
+   "p95": 127.9
+  },
+  "assist": false,
+  "sup": false,
+  "lift0": 48.0,
+  "sig": null,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_novideo/rollout_20261023_112128_ep000",
+  "frames": 300,
+  "abort": null,
+  "lat": {
+   "p50": 110.2,
+   "p95": 116.2
+  },
+  "assist": false,
+  "sup": false,
+  "lift0": 48.0,
+  "sig": null,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_145909_ep000",
+  "frames": 423,
+  "abort": "stalled near recorded frame 392 while carrying the box",
+  "lat": {
+   "p50": 95.9,
+   "p95": 98.6
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_150111_ep000",
+  "frames": 1003,
+  "abort": "stalled near recorded frame 773 while carrying the box",
+  "lat": {
+   "p50": 94.5,
+   "p95": 97.2
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_150501_ep000",
+  "frames": 883,
+  "abort": "stalled near recorded frame 773 while carrying the box",
+  "lat": {
+   "p50": 95.1,
+   "p95": 97.9
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_150827_ep000",
+  "frames": 1122,
+  "abort": "stalled near recorded frame 773 while carrying the box",
+  "lat": {
+   "p50": 94.9,
+   "p95": 98.1
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_151225_ep000",
+  "frames": 1041,
+  "abort": "R grasp missed; R arm already retried 2 times",
+  "lat": {
+   "p50": 94.9,
+   "p95": 97.2
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_onCart/rollout_20261023_151600_ep000",
+  "frames": 231,
+  "abort": "box tipped over (40 deg)",
+  "lat": {
+   "p50": 133.7,
+   "p95": 186.4
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_openapproach/rollout_20261023_141300_ep000",
+  "frames": 349,
+  "abort": "box tipped over (36 deg)",
+  "lat": {
+   "p50": 94.6,
+   "p95": 97.5
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_standing/rollout_20261023_144650_ep000",
+  "frames": 259,
+  "abort": "box tipped over (43 deg)",
+  "lat": {
+   "p50": 94.3,
+   "p95": 97.0
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_standing/rollout_20261023_144831_ep000",
+  "frames": 403,
+  "abort": "stalled near recorded frame 400 while carrying the box",
+  "lat": {
+   "p50": 96.3,
+   "p95": 103.2
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_standing_h95/rollout_20261023_145128_ep000",
+  "frames": 893,
+  "abort": "stalled near recorded frame 773 while carrying the box",
+  "lat": {
+   "p50": 95.1,
+   "p95": 97.8
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_supervised/rollout_20261023_135655_ep000",
+  "frames": 131,
+  "abort": null,
+  "lat": {
+   "p50": 95.2,
+   "p95": 96.9
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": 2,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_supervised/rollout_20261023_140018_ep000",
+  "frames": 594,
+  "abort": "R grasp missed; R arm already retried 2 times",
+  "lat": {
+   "p50": 96.3,
+   "p95": 102.4
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_supervised/rollout_20261023_140301_ep000",
+  "frames": 764,
+  "abort": "R grasp missed; R arm already retried 2 times",
+  "lat": {
+   "p50": 94.0,
+   "p95": 106.3
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": true,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_supervised/rollout_20261023_140607_ep000",
+  "frames": 783,
+  "abort": "stalled near recorded frame 393; L arm already retried 2 times",
+  "lat": {
+   "p50": 94.9,
+   "p95": 101.7
+  },
+  "assist": false,
+  "sup": true,
+  "lift0": 0,
+  "sig": null,
+  "attempt": true,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_support30/rollout_20261023_145819_ep000",
+  "frames": 181,
+  "abort": null,
+  "lat": {
+   "p50": 96.3,
+   "p95": 99.9
+  },
+  "assist": true,
+  "sup": true,
+  "lift0": 0,
+  "sig": 2,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ },
+ {
+  "run": "rollouts_v2_dump/rollout_20261023_125644_ep000",
+  "frames": 480,
+  "abort": null,
+  "lat": {
+   "p50": 94.6,
+   "p95": 99.6
+  },
+  "assist": false,
+  "sup": false,
+  "lift0": 42.0,
+  "sig": null,
+  "attempt": false,
+  "left_grasp": false,
+  "right_grasp": false,
+  "handover": false,
+  "placed": false
+ }
+]

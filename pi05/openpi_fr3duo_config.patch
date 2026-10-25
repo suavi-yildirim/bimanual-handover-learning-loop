@@ -1,0 +1,116 @@
+diff --git a/src/openpi/training/config.py b/src/openpi/training/config.py
+index 4ca47e1..e33ab09 100644
+--- a/src/openpi/training/config.py
++++ b/src/openpi/training/config.py
+@@ -19,6 +19,7 @@ import openpi.models.pi0_fast as pi0_fast
+ import openpi.models.tokenizer as _tokenizer
+ import openpi.policies.aloha_policy as aloha_policy
+ import openpi.policies.droid_policy as droid_policy
++import openpi.policies.fr3duo_policy as fr3duo_policy
+ import openpi.policies.libero_policy as libero_policy
+ import openpi.shared.download as _download
+ import openpi.shared.normalize as _normalize
+@@ -278,6 +279,56 @@ class LeRobotAlohaDataConfig(DataConfigFactory):
+         )
+ 
+ 
++# --- C2 Hackathon: FR3 Duo handover (see pi05/ in the project repo) ---
++FR3DUO_PROMPT = "Hand the box from the left gripper to the right gripper and place it on the serving tray."
++
++
++@dataclasses.dataclass(frozen=True)
++class LeRobotFR3DuoDataConfig(DataConfigFactory):
++    """FR3 Duo, 16 dims: left q1-q7, left gripper, right q1-q7, right gripper. Absolute joint targets in the data."""
++
++    # If true, joints become deltas w.r.t. the current state; grippers stay absolute.
++    use_delta_joint_actions: bool = True
++    default_prompt: str | None = FR3DUO_PROMPT
++
++    @override
++    def create(self, assets_dirs: pathlib.Path, model_config: _model.BaseModelConfig) -> DataConfig:
++        # Dataset keys (written by convert_fr3duo_to_openpi.py) -> keys the sim client sends at inference.
++        repack_transform = _transforms.Group(
++            inputs=[
++                _transforms.RepackTransform(
++                    {
++                        "images": {
++                            "external_image": "external_image",
++                            "left_wrist_image": "left_wrist_image",
++                            "right_wrist_image": "right_wrist_image",
++                        },
++                        "state": "state",
++                        "actions": "actions",
++                        "prompt": "prompt",
++                    }
++                )
++            ]
++        )
++        data_transforms = _transforms.Group(
++            inputs=[fr3duo_policy.FR3DuoInputs()],
++            outputs=[fr3duo_policy.FR3DuoOutputs()],
++        )
++        if self.use_delta_joint_actions:
++            delta_action_mask = _transforms.make_bool_mask(7, -1, 7, -1)
++            data_transforms = data_transforms.push(
++                inputs=[_transforms.DeltaActions(delta_action_mask)],
++                outputs=[_transforms.AbsoluteActions(delta_action_mask)],
++            )
++        model_transforms = ModelTransformFactory(default_prompt=self.default_prompt)(model_config)
++        return dataclasses.replace(
++            self.create_base_config(assets_dirs, model_config),
++            repack_transforms=repack_transform,
++            data_transforms=data_transforms,
++            model_transforms=model_transforms,
++        )
++
++
+ @dataclasses.dataclass(frozen=True)
+ class LeRobotLiberoDataConfig(DataConfigFactory):
+     """
+@@ -965,6 +1016,46 @@ _CONFIGS = [
+         exp_name="debug_pi05",
+         wandb_enabled=False,
+     ),
++    #
++    # C2 Hackathon: FR3 Duo handover, pi0.5 base + LoRA (one 24 GB GPU). 30 Hz, horizon 30 = 1 s.
++    #
++    TrainConfig(
++        name="pi05_fr3duo_handover_lora",
++        model=pi0_config.Pi0Config(
++            pi05=True, action_horizon=30, paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
++        ),
++        data=LeRobotFR3DuoDataConfig(
++            repo_id="local/fr3duo_handover_v0",
++            base_config=DataConfig(prompt_from_task=True),
++        ),
++        weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
++        freeze_filter=pi0_config.Pi0Config(
++            pi05=True, action_horizon=30, paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
++        ).get_freeze_filter(),
++        # Turn off EMA for LoRA finetuning.
++        ema_decay=None,
++        batch_size=32,
++        # 24 cores; each step decodes 32 x 3 PNG frames, the default of 2 workers can starve the GPU.
++        num_workers=8,
++        num_train_steps=30_000,
++        wandb_enabled=False,
++    ),
++    # Externally trained checkpoint (fr3-duo-checkpoint-6a5f7c87, 23 Oct). Inferred from its weights and
++    # norm stats: pi0.5 + LoRA, 16-dim, ABSOLUTE joint actions (no delta), assets under "fr3_duo".
++    # action_horizon is not stored in the weights: 10 fits best offline (0.38 deg vs 0.45 at 30, 0.55 at 50).
++    TrainConfig(
++        name="pi05_fr3duo_6a5f7c87",
++        model=pi0_config.Pi0Config(
++            pi05=True, action_horizon=10, paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
++        ),
++        data=LeRobotFR3DuoDataConfig(
++            repo_id="local/fr3duo_handover_v0",
++            assets=AssetsConfig(asset_id="fr3_duo"),
++            base_config=DataConfig(prompt_from_task=True),
++            use_delta_joint_actions=False,
++        ),
++        wandb_enabled=False,
++    ),
+     # RoboArena & PolaRiS configs.
+     *roboarena_config.get_roboarena_configs(),
+     *polaris_config.get_polaris_configs(),

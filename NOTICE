@@ -1,0 +1,14 @@
+Siemens Healthineers Hackathon 2026, Challenge 2
+Copyright 2026 Suavi Yildirim
+
+This code is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Not included and not covered by this license: the datasets, the Isaac Sim scene, the challenge
+documents and the fine-tuned checkpoint provided by Siemens Healthineers to hackathon participants.
+The code needs them to run end to end; they are not redistributable.
+
+The screenshots and videos in media/ and the rendered frames in some docs/figures are images of that
+scene. They are included for illustration only and are not licensed under the Apache License.
+
+The pi05/ integration patches and extends openpi (Physical Intelligence, Apache License 2.0),
+which is cloned at setup time and not vendored here.

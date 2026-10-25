@@ -1,0 +1,110 @@
+{
+  "expert | data generation (box offset +-15 mm, +-5 deg)": {
+    "runs_scored": 18,
+    "crashed_or_excluded": 1,
+    "left_grasp": {
+      "k": 0,
+      "n": 18,
+      "ci95": [
+        0.0,
+        0.18
+      ]
+    },
+    "right_grasp": {
+      "k": 0,
+      "n": 18,
+      "ci95": [
+        0.0,
+        0.18
+      ]
+    },
+    "handover": {
+      "k": 0,
+      "n": 18,
+      "ci95": [
+        0.0,
+        0.18
+      ]
+    },
+    "placed": {
+      "k": 16,
+      "n": 18,
+      "ci95": [
+        0.67,
+        0.97
+      ]
+    }
+  },
+  "v0 | development (mixed settings)": {
+    "runs_scored": 29,
+    "crashed_or_excluded": 4,
+    "left_grasp": {
+      "k": 10,
+      "n": 29,
+      "ci95": [
+        0.2,
+        0.53
+      ]
+    },
+    "right_grasp": {
+      "k": 1,
+      "n": 29,
+      "ci95": [
+        0.01,
+        0.17
+      ]
+    },
+    "handover": {
+      "k": 1,
+      "n": 29,
+      "ci95": [
+        0.01,
+        0.17
+      ]
+    },
+    "placed": {
+      "k": 0,
+      "n": 29,
+      "ci95": [
+        0.0,
+        0.12
+      ]
+    }
+  },
+  "v1 | controlled (raw policy, seeded box)": {
+    "runs_scored": 0,
+    "crashed_or_excluded": 1,
+    "left_grasp": {
+      "k": 0,
+      "n": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "right_grasp": {
+      "k": 0,
+      "n": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "handover": {
+      "k": 0,
+      "n": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "placed": {
+      "k": 0,
+      "n": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}
